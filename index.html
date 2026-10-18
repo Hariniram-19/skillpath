@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>SkillPath</title>
+
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+
+<body>
+
+
+<!-- ========================================
+     NAVBAR
+======================================== -->
+
+<nav>
+
+    <h2>SkillPath</h2>
+
+    <div>
+
+        <button onclick="showSection('home')">
+            Home
+        </button>
+
+        <button onclick="showCareers()">
+            Careers
+        </button>
+
+        <button onclick="showSection('about')">
+            About
+        </button>
+
+    </div>
+
+</nav>
+
+
+
+<!-- ========================================
+     HOME
+======================================== -->
+
+<section id="home" class="section">
+
+    <h1>
+        Discover Your Next Skill
+    </h1>
+
+    <p>
+        Find your skill gaps and discover the right
+        career path for you.
+    </p>
+
+    <button onclick="startAssessment()">
+        Start Assessment
+    </button>
+
+</section>
+
+
+
+<!-- ========================================
+     INTERESTS
+======================================== -->
+
+<section id="interests"
+         class="section hidden">
+
+    <h1>
+        What Are You Interested In?
+    </h1>
+
+    <p>
+        Choose the area you enjoy the most.
+    </p>
+
+    <div id="interestContainer"></div>
+
+    <button id="continueButton"
+            onclick="recommendCareer()"
+            disabled>
+
+        Continue
+
+    </button>
+
+</section>
+
+
+
+<!-- ========================================
+     RECOMMENDATION
+======================================== -->
+
+<section id="recommendation"
+         class="section hidden">
+
+    <h1>
+        Your Recommended Career
+    </h1>
+
+    <div id="recommendationContainer"></div>
+
+    <button onclick="startAssessmentForCareer()">
+
+        Take Skill Assessment
+
+    </button>
+
+    <button onclick="showCareers()">
+
+        Explore Other Careers
+
+    </button>
+
+</section>
+
+
+
+<!-- ========================================
+     CAREERS
+======================================== -->
+
+<section id="careers"
+         class="section hidden">
+
+    <h1>
+        Explore Career Paths
+    </h1>
+
+    <p>
+        Explore different career options and
+        their required skills.
+    </p>
+
+    <div id="careerContainer"></div>
+
+</section>
+
+
+
+<!-- ========================================
+     ASSESSMENT
+======================================== -->
+
+<section id="assessment"
+         class="section hidden">
+
+    <h1 id="careerTitle">
+        Skill Assessment
+    </h1>
+
+    <p>
+        Rate your current knowledge for each skill.
+    </p>
+
+    <div id="skillContainer"></div>
+
+    <button onclick="calculateResult()">
+
+        Analyze My Skills
+
+    </button>
+
+</section>
+
+
+
+<!-- ========================================
+     RESULT
+======================================== -->
+
+<section id="result"
+         class="section hidden">
+
+    <h1>
+        Your Skill Analysis
+    </h1>
+
+
+    <!-- OVERALL SCORE -->
+
+    <div id="score"></div>
+
+
+    <!-- SKILL PROFILE -->
+
+    <h2>
+        Your Skill Profile
+    </h2>
+
+    <div id="skillProfile"></div>
+
+
+    <!-- STRENGTHS -->
+
+    <h2>
+        Your Strengths
+    </h2>
+
+    <div id="strengths"></div>
+
+
+    <!-- SKILL GAPS -->
+
+    <h2>
+        Your Skill Gaps
+    </h2>
+
+    <div id="gaps"></div>
+
+
+    <!-- RESULT ACTIONS -->
+
+    <button onclick="showRoadmap()">
+
+        View My Roadmap
+
+    </button>
+
+
+    <button onclick="showSimulator()">
+
+        🔮 Try Career What-If
+
+    </button>
+
+</section>
+
+
+
+<!-- ========================================
+     ROADMAP
+======================================== -->
+
+<section id="roadmap"
+         class="section hidden">
+
+    <h1>
+        Your Personalized Roadmap
+    </h1>
+
+    <div id="roadmapContainer"></div>
+
+    <button onclick="showSection('home')">
+
+        Back to Home
+
+    </button>
+
+</section>
+
+
+
+<!-- ========================================
+     CAREER WHAT-IF SIMULATOR
+======================================== -->
+
+<section id="simulator"
+         class="section hidden">
+
+    <h1>
+        🔮 Career What-If Simulator
+    </h1>
+
+    <p>
+        See how your current skills fit different
+        career paths and how improving your skills
+        can increase your career readiness.
+    </p>
+
+
+    <!-- CURRENT CAREER -->
+
+    <div class="simulator-box">
+
+        <h2>
+            Your Current Career
+        </h2>
+
+        <div id="currentCareerResult"></div>
+
+    </div>
+
+
+
+    <!-- OTHER CAREERS -->
+
+    <div class="simulator-box">
+
+        <h2>
+            What If You Choose Another Career?
+        </h2>
+
+        <p>
+            Compare your current skills with
+            other career paths.
+        </p>
+
+        <div id="careerComparison"></div>
+
+    </div>
+
+
+
+    <!-- IMPROVEMENT -->
+
+    <div class="simulator-box">
+
+        <h2>
+            🚀 What If You Improve Your Skill Gaps?
+        </h2>
+
+        <p>
+            See how improving your weak skills could
+            increase your career match.
+        </p>
+
+        <div id="improvementResult"></div>
+
+    </div>
+
+
+    <button onclick="showSection('home')">
+
+        Back to Home
+
+    </button>
+
+</section>
+
+
+
+<!-- ========================================
+     ABOUT
+======================================== -->
+
+<section id="about"
+         class="section hidden">
+
+    <h1>
+        About SkillPath
+    </h1>
+
+    <p>
+        SkillPath helps college students discover
+        suitable career paths, identify skill gaps
+        and create personalized learning roadmaps.
+    </p>
+
+</section>
+
+
+
+<!-- ========================================
+     JAVASCRIPT
+======================================== -->
+
+<script src="script.js"></script>
+
+
+</body>
+
+</html>

@@ -1,0 +1,1137 @@
+/* ========================================
+   GLOBAL
+======================================== */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: "Segoe UI", Arial, sans-serif;
+    background: #f6f7fb;
+    color: #172033;
+    min-height: 100vh;
+}
+
+
+/* ========================================
+   NAVBAR
+======================================== */
+
+nav {
+    height: 75px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    padding: 0 7%;
+
+    background: rgba(255, 255, 255, 0.92);
+
+    border-bottom: 1px solid #e8eaf0;
+
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+
+    backdrop-filter: blur(12px);
+}
+
+nav h2 {
+    font-size: 24px;
+    font-weight: 700;
+
+    color: #4f46e5;
+
+    letter-spacing: -0.5px;
+}
+
+nav h2::before {
+    content: "✦ ";
+}
+
+nav div {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+nav button {
+    margin: 0;
+
+    padding: 9px 16px;
+
+    background: transparent;
+
+    color: #596174;
+
+    font-size: 14px;
+    font-weight: 500;
+
+    border: none;
+    border-radius: 8px;
+
+    transition: 0.25s;
+}
+
+nav button:hover {
+    background: #f0efff;
+    color: #4f46e5;
+}
+
+
+/* ========================================
+   SECTION
+======================================== */
+
+.section {
+    width: 100%;
+    max-width: 1100px;
+
+    min-height: calc(100vh - 75px);
+
+    margin: auto;
+
+    padding: 90px 30px;
+
+    text-align: center;
+
+    animation: fadeIn 0.45s ease;
+}
+
+.hidden {
+    display: none !important;
+}
+
+
+/* ========================================
+   HOME / HERO
+======================================== */
+
+#home {
+    max-width: none;
+
+    display: flex;
+    flex-direction: column;
+
+    justify-content: center;
+    align-items: center;
+
+    position: relative;
+
+    overflow: hidden;
+
+    background:
+        radial-gradient(
+            circle at 20% 20%,
+            rgba(99, 102, 241, 0.12),
+            transparent 30%
+        ),
+        radial-gradient(
+            circle at 80% 70%,
+            rgba(139, 92, 246, 0.10),
+            transparent 30%
+        );
+}
+
+#home h1 {
+    max-width: 800px;
+
+    font-size: clamp(42px, 7vw, 76px);
+
+    line-height: 1.05;
+
+    letter-spacing: -3px;
+
+    color: #111827;
+
+    margin-bottom: 25px;
+}
+
+#home h1::after {
+    content: "";
+
+    display: block;
+
+    width: 90px;
+    height: 5px;
+
+    margin: 25px auto 0;
+
+    border-radius: 20px;
+
+    background: linear-gradient(
+        90deg,
+        #4f46e5,
+        #8b5cf6
+    );
+}
+
+#home p {
+    max-width: 650px;
+
+    font-size: 18px;
+
+    line-height: 1.7;
+
+    color: #697386;
+
+    margin-bottom: 15px;
+}
+
+
+/* ========================================
+   MAIN BUTTONS
+======================================== */
+
+button {
+    padding: 13px 24px;
+
+    margin: 20px 5px 0;
+
+    border: none;
+
+    border-radius: 10px;
+
+    background: linear-gradient(
+        135deg,
+        #4f46e5,
+        #6366f1
+    );
+
+    color: white;
+
+    font-size: 14px;
+    font-weight: 600;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 8px 20px rgba(79, 70, 229, 0.20);
+
+    transition:
+        transform 0.25s,
+        box-shadow 0.25s,
+        opacity 0.25s;
+}
+
+button:hover {
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 12px 25px rgba(79, 70, 229, 0.28);
+}
+
+button:active {
+    transform: translateY(0);
+}
+
+button:disabled {
+    background: #c7cad3;
+
+    color: #737783;
+
+    box-shadow: none;
+
+    cursor: not-allowed;
+
+    transform: none;
+}
+
+
+/* ========================================
+   HEADINGS
+======================================== */
+
+.section > h1 {
+    font-size: 42px;
+
+    letter-spacing: -1.5px;
+
+    margin-bottom: 15px;
+
+    color: #172033;
+}
+
+.section > p {
+    color: #6b7280;
+
+    font-size: 16px;
+
+    line-height: 1.7;
+
+    margin-bottom: 25px;
+}
+
+
+/* ========================================
+   INTEREST CARDS
+======================================== */
+
+#interestContainer {
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, minmax(180px, 1fr));
+
+    gap: 18px;
+
+    max-width: 900px;
+
+    margin: 45px auto 20px;
+}
+
+#interestContainer .card {
+    min-height: 130px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    margin: 0;
+
+    font-size: 16px;
+    font-weight: 600;
+
+    color: #303849;
+
+    border: 2px solid transparent;
+
+    transition:
+        transform 0.25s,
+        border 0.25s,
+        background 0.25s,
+        box-shadow 0.25s;
+}
+
+#interestContainer .card:hover {
+    transform: translateY(-5px);
+
+    border-color: #c7c5ff;
+
+    box-shadow:
+        0 12px 30px rgba(40, 45, 80, 0.10);
+}
+
+#interestContainer .card.selected {
+    border: 2px solid #6366f1;
+
+    background: #f0efff;
+
+    color: #4338ca;
+
+    transform: translateY(-5px);
+
+    box-shadow:
+        0 12px 30px rgba(79, 70, 229, 0.15);
+}
+
+
+/* ========================================
+   GENERAL CARDS
+======================================== */
+
+.card {
+    display: inline-block;
+
+    width: 280px;
+
+    min-height: 180px;
+
+    margin: 12px;
+
+    padding: 28px;
+
+    background: white;
+
+    border: 1px solid #e8eaf0;
+
+    border-radius: 16px;
+
+    box-shadow:
+        0 8px 25px rgba(30, 35, 60, 0.06);
+
+    cursor: pointer;
+
+    transition:
+        transform 0.25s,
+        box-shadow 0.25s,
+        border 0.25s;
+}
+
+.card:hover {
+    transform: translateY(-6px);
+
+    box-shadow:
+        0 15px 35px rgba(30, 35, 60, 0.10);
+}
+
+.card h2 {
+    margin-bottom: 12px;
+
+    color: #202638;
+
+    font-size: 21px;
+}
+
+.card p {
+    color: #6b7280;
+
+    line-height: 1.6;
+
+    font-size: 14px;
+}
+
+
+/* ========================================
+   CAREER CONTAINER
+======================================== */
+
+#careerContainer {
+    display: flex;
+
+    flex-wrap: wrap;
+
+    justify-content: center;
+
+    gap: 5px;
+
+    margin-top: 40px;
+}
+
+#careerContainer .card {
+    cursor: default;
+}
+
+#careerContainer .card button {
+    font-size: 13px;
+
+    padding: 10px 17px;
+}
+
+
+/* ========================================
+   RECOMMENDATION
+======================================== */
+
+#recommendationContainer {
+    margin: 40px auto 15px;
+}
+
+#recommendationContainer .card {
+    width: min(600px, 90%);
+
+    cursor: default;
+
+    border: 1px solid #dfe1ff;
+
+    background:
+        linear-gradient(
+            145deg,
+            #ffffff,
+            #f8f7ff
+        );
+}
+
+#recommendationContainer .card h2 {
+    font-size: 30px;
+
+    color: #4338ca;
+}
+
+#recommendationContainer .card p {
+    margin-top: 12px;
+}
+
+
+/* ========================================
+   SKILL ASSESSMENT
+======================================== */
+
+#skillContainer {
+    max-width: 750px;
+
+    margin: 40px auto;
+}
+
+.skill {
+    text-align: left;
+
+    margin: 18px 0;
+
+    padding: 25px;
+
+    background: white;
+
+    border: 1px solid #e7e9ef;
+
+    border-radius: 15px;
+
+    box-shadow:
+        0 6px 20px rgba(30, 35, 60, 0.05);
+
+    transition: 0.25s;
+}
+
+.skill:hover {
+    border-color: #c9c7ff;
+
+    transform: translateY(-2px);
+}
+
+.skill h3 {
+    font-size: 19px;
+
+    margin-bottom: 8px;
+
+    color: #202638;
+}
+
+.skill p {
+    font-size: 13px;
+
+    color: #7b8191;
+
+    margin-bottom: 20px;
+}
+
+.skill label {
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 6px;
+
+    margin: 7px 12px 0 0;
+
+    padding: 8px 12px;
+
+    border: 1px solid #e3e5eb;
+
+    border-radius: 8px;
+
+    font-size: 13px;
+
+    color: #596174;
+
+    cursor: pointer;
+
+    transition: 0.2s;
+}
+
+.skill label:hover {
+    border-color: #aaa7f8;
+
+    background: #f7f6ff;
+}
+
+.skill input {
+    accent-color: #4f46e5;
+}
+
+
+/* ========================================
+   RESULT
+======================================== */
+
+#score {
+    width: 240px;
+
+    margin: 40px auto;
+
+    padding: 30px 20px;
+
+    background: white;
+
+    border: 1px solid #dedfff;
+
+    border-radius: 20px;
+
+    box-shadow:
+        0 12px 30px rgba(79, 70, 229, 0.10);
+}
+
+#score h2 {
+    font-size: 30px;
+
+    color: #4f46e5;
+
+    margin-bottom: 10px;
+}
+
+#score p {
+    font-size: 13px;
+
+    color: #697386;
+
+    line-height: 1.6;
+}
+
+#result h2:not(#score h2) {
+    margin-top: 35px;
+
+    font-size: 20px;
+}
+
+#strengths,
+#gaps {
+    max-width: 700px;
+
+    margin: 15px auto;
+
+    padding: 18px;
+
+    background: white;
+
+    border-radius: 12px;
+
+    border: 1px solid #e6e8ee;
+
+    color: #596174;
+
+    line-height: 1.8;
+}
+
+
+/* ========================================
+   ROADMAP
+======================================== */
+
+#roadmapContainer {
+    max-width: 700px;
+
+    margin: 45px auto;
+
+    text-align: left;
+
+    position: relative;
+}
+
+.roadmap-step {
+    position: relative;
+
+    margin: 0 0 20px 25px;
+
+    padding: 22px 25px;
+
+    background: white;
+
+    border: 1px solid #e5e7ee;
+
+    border-left: 4px solid #6366f1;
+
+    border-radius: 12px;
+
+    box-shadow:
+        0 7px 22px rgba(30, 35, 60, 0.06);
+
+    transition: 0.25s;
+}
+
+.roadmap-step:hover {
+    transform: translateX(5px);
+
+    box-shadow:
+        0 10px 25px rgba(30, 35, 60, 0.09);
+}
+
+.roadmap-step h3 {
+    color: #303849;
+
+    margin-bottom: 8px;
+}
+
+.roadmap-step p {
+    color: #737a89;
+
+    font-size: 14px;
+}
+
+
+/* ========================================
+   ABOUT
+======================================== */
+
+#about {
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+
+    align-items: center;
+}
+
+#about p {
+    max-width: 700px;
+
+    padding: 30px;
+
+    background: white;
+
+    border-radius: 16px;
+
+    border: 1px solid #e6e8ef;
+
+    box-shadow:
+        0 8px 25px rgba(30, 35, 60, 0.06);
+}
+
+
+/* ========================================
+   ANIMATION
+======================================== */
+
+@keyframes fadeIn {
+
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+/* ========================================
+   RESPONSIVE
+======================================== */
+
+@media (max-width: 750px) {
+
+    nav {
+        padding: 0 20px;
+    }
+
+    nav h2 {
+        font-size: 20px;
+    }
+
+    nav button {
+        padding: 8px;
+
+        margin-left: 2px;
+
+        font-size: 12px;
+    }
+
+    .section {
+        padding: 60px 20px;
+    }
+
+    .section > h1 {
+        font-size: 32px;
+    }
+
+    #home h1 {
+        font-size: 45px;
+
+        letter-spacing: -2px;
+    }
+
+    #interestContainer {
+        grid-template-columns: 1fr 1fr;
+
+        gap: 12px;
+    }
+
+    #interestContainer .card {
+        width: auto;
+
+        min-height: 110px;
+
+        font-size: 14px;
+    }
+
+    .card {
+        width: 90%;
+    }
+
+    .skill label {
+        width: 100%;
+    }
+}
+
+
+@media (max-width: 480px) {
+
+    nav {
+        height: auto;
+
+        padding: 15px;
+
+        flex-direction: column;
+
+        gap: 10px;
+    }
+
+    #interestContainer {
+        grid-template-columns: 1fr;
+    }
+
+    #home h1 {
+        font-size: 38px;
+    }
+}
+/* ========================================
+   CAREER WHAT-IF SIMULATOR
+======================================== */
+
+.simulator-box {
+
+    max-width: 800px;
+
+    margin: 30px auto;
+
+    padding: 30px;
+
+    background: white;
+
+    border: 1px solid #e5e7ef;
+
+    border-radius: 18px;
+
+    box-shadow:
+        0 8px 25px rgba(30, 35, 60, 0.06);
+
+}
+
+.simulator-box h2 {
+
+    margin-bottom: 10px;
+
+    color: #202638;
+
+}
+
+.simulator-box > p {
+
+    color: #737a89;
+
+}
+
+
+/* CURRENT CAREER */
+
+.simulator-career {
+
+    margin-top: 25px;
+
+    padding: 25px;
+
+    border-radius: 15px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #f0efff,
+            #faf9ff
+        );
+
+}
+
+.simulator-career h3 {
+
+    font-size: 24px;
+
+    color: #4338ca;
+
+}
+
+.big-match {
+
+    margin: 15px 0 5px;
+
+    font-size: 48px;
+
+    font-weight: 700;
+
+    color: #4f46e5;
+
+}
+
+
+/* CAREER COMPARISON */
+
+#careerComparison {
+
+    margin-top: 25px;
+
+}
+
+.comparison-card {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    margin: 12px 0;
+
+    padding: 18px 20px;
+
+    background: #fafbff;
+
+    border: 1px solid #e5e7ef;
+
+    border-radius: 12px;
+
+    transition: 0.25s;
+
+}
+
+.comparison-card:hover {
+
+    transform: translateX(5px);
+
+    border-color: #b9b7ff;
+
+}
+
+.comparison-card h3 {
+
+    margin-bottom: 5px;
+
+    color: #303849;
+
+}
+
+.comparison-card p {
+
+    font-size: 13px;
+
+    color: #7b8190;
+
+}
+
+.comparison-score {
+
+    min-width: 65px;
+
+    padding: 9px;
+
+    text-align: center;
+
+    border-radius: 10px;
+
+    background: #eeeeff;
+
+    color: #4f46e5;
+
+    font-weight: 700;
+
+}
+
+
+/* IMPROVEMENT */
+
+.improvement-card {
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    gap: 40px;
+
+    margin-top: 30px;
+
+}
+
+.improvement-card div {
+
+    padding: 20px;
+
+    min-width: 130px;
+
+    background: #f8f9fc;
+
+    border-radius: 12px;
+
+}
+
+.improvement-card p {
+
+    font-size: 13px;
+
+    color: #7b8190;
+
+}
+
+.improvement-card strong {
+
+    display: block;
+
+    margin-top: 5px;
+
+    font-size: 30px;
+
+    color: #4f46e5;
+
+}
+
+.arrow {
+
+    font-size: 30px;
+
+    color: #8b5cf6;
+
+}
+
+
+/* MESSAGE */
+
+.improvement-message {
+
+    margin-top: 25px;
+
+    padding: 15px;
+
+    background: #f0efff;
+
+    border-radius: 10px;
+
+    color: #4b5563;
+
+}
+
+
+/* PRIORITY */
+
+.priority-title {
+
+    margin-top: 25px;
+
+}
+
+.priority-skills {
+
+    display: flex;
+
+    justify-content: center;
+
+    flex-wrap: wrap;
+
+    gap: 10px;
+
+    margin-top: 15px;
+
+}
+
+.priority-skills span {
+
+    padding: 8px 14px;
+
+    background: #eeeeff;
+
+    color: #4f46e5;
+
+    border-radius: 20px;
+
+    font-size: 13px;
+
+    font-weight: 600;
+
+}
+
+
+/* MOBILE */
+
+@media (max-width: 600px) {
+
+    .improvement-card {
+
+        gap: 10px;
+
+    }
+
+    .improvement-card div {
+
+        min-width: 100px;
+
+        padding: 15px;
+
+    }
+
+    .improvement-card strong {
+
+        font-size: 24px;
+
+    }
+
+    .arrow {
+    
+        font-size: 22px;
+
+    }
+
+}
+/* ========================================
+   SKILL PROFILE
+======================================== */
+
+#skillProfile {
+    max-width: 750px;
+    margin: 25px auto 40px;
+}
+
+.skill-profile-card {
+    background: white;
+    border: 1px solid #e6e8ef;
+    border-radius: 14px;
+    padding: 18px 22px;
+    margin: 12px 0;
+    text-align: left;
+    box-shadow: 0 6px 20px rgba(30, 35, 60, 0.05);
+}
+
+.skill-profile-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.skill-profile-header strong {
+    color: #303849;
+}
+
+.skill-percentage {
+    color: #4f46e5;
+    font-weight: 700;
+}
+
+.skill-bar {
+    width: 100%;
+    height: 9px;
+    background: #eceef4;
+    border-radius: 20px;
+    overflow: hidden;
+}
+
+.skill-bar-fill {
+    height: 100%;
+    width: 0;
+    border-radius: 20px;
+    background: linear-gradient(90deg, #4f46e5, #8b5cf6);
+    animation: skillFill 1s ease forwards;
+}
+
+@keyframes skillFill {
+    from {
+        width: 0;
+    }
+}
